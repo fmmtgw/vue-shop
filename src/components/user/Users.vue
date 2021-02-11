@@ -359,11 +359,9 @@
       async saveRoleInfo(){
         if(!this.selectRoleId) return this.$message.error('请选择要分配的角色')
         const {data:res} = await this.$http.put(`users/${this.userInfo.id}/role`,{rid:this.selectRoleId})
-        console.log(res);
-        console.log(this.userInfo.id)
-
-        /*if(res.meta.status!==200) return this.$message.error('更新角色失败')
-        this.$message.success('更新角色成功')*/
+        // console.log(res);
+        if(res.meta.status!==200) return this.$message.error('更新角色失败')
+        this.$message.success('更新角色成功')
         this.getUserList()
         this.setRoleDialogVisible=false
       },
